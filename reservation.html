@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Reservation - Hayden's Food Finder</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Hayden's Food Finder</h1>
+        <p>Reserve Your Restaurant</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a href="recommend.html">Recommendations</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="reservation.html"
+                class="active">Reservation</a></li>
+        </ul>
+    </nav>
+
+    <section>
+
+        <h2>Book a Reservation</h2>
+
+        <form id="reservationForm"
+              method="POST"
+              action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php">
+
+            <label for="fullName">
+                Full Name:
+            </label>
+
+            <input type="text"
+                   id="fullName"
+                   required>
+
+            <br><br>
+
+            <label for="reservationEmail">
+                Email Address:
+            </label>
+
+            <input type="email"
+                   id="reservationEmail"
+                   required>
+
+            <br><br>
+
+            <label for="reservationPhone">
+                Phone Number:
+            </label>
+
+            <input type="text"
+                   id="reservationPhone"
+                   required>
+
+            <br><br>
+
+            <label for="restaurant">
+                Restaurant:
+            </label>
+
+            <select id="restaurant"
+                    onchange="updateDeposit()"
+                    required>
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="Saporito Restaurant">
+                    Saporito Restaurant
+                </option>
+
+                <option value="Kobe Teppanyaki">
+                    Kobe Teppanyaki
+                </option>
+
+                <option value="BBQ-K Doncaster">
+                    BBQ-K Doncaster
+                </option>
+
+                <option value="Doncaster Greek Tavern">
+                    Doncaster Greek Tavern
+                </option>
+
+                <option value="Thai Eat Restaurant">
+                    Thai Eat Restaurant
+                </option>
+
+                <option value="Persian Kebab House">
+                    Persian Kebab House
+                </option>
+
+            </select>
+
+            <br><br>
+
+            <label for="reservationDate">
+                Reservation Date:
+            </label>
+
+            <input type="datetime-local"
+                   id="reservationDate"
+                   required>
+
+            <br><br>
+
+            <label for="people">
+                Number of People:
+            </label>
+
+            <input type="number"
+                   id="people"
+                   min="1"
+                   required>
+
+            <br><br>
+
+    
+            <label for="specialRequest">
+                Special Requests:
+            </label>
+
+            <textarea id="specialRequest">
+            </textarea>
+
+            <br><br>
+
+            <label for="deposit">
+                Deposit Amount:
+            </label>
+
+            <input type="text"
+                   id="deposit"
+                   readonly>
+
+            <br><br>
+
+            <label for="paymentMethod">
+                Deposit Method:
+            </label>
+
+            <select id="paymentMethod"
+                    onchange="togglePayment()">
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="Voucher">
+                    Voucher
+                </option>
+
+                <option value="Online">
+                    Online Payment
+                </option>
+
+            </select>
+
+            <br><br>
+
+            <div id="voucherField"
+                 style="display:none;">
+
+                <label for="voucherCode">
+                    Voucher Code:
+                </label>
+
+                <input type="text"
+                       id="voucherCode"
+                       placeholder="12 digits">
+            </div>
+
+            <div id="cardField"
+                 style="display:none;">
+
+                <label for="cardNumber">
+                    Credit Card:
+                </label>
+
+                <input type="text"
+                       id="cardNumber"
+                       placeholder="15–16 digits">
+            </div>
+
+            <br><br>
+
+            <label for="billingEmail">
+                Billing Email:
+            </label>
+
+            <input type="email"
+                   id="billingEmail">
+
+            <br>
+
+            <input type="checkbox"
+                   id="sameEmail"
+                   onclick="copyEmail()">
+
+            Same as email address
+
+            <br><br>
+
+            <button type="submit">
+                Reserve Now
+            </button>
+
+            <p id="reservationError"></p>
+
+        </form>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Hayden's Food Finder</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
